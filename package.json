@@ -1,5 +1,7 @@
 {
-  "name": "react-storybook-v6",
+  "name": "x128Components",
+  "license": "MIT",
+  "author": "@Toppawar - @x128bit",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
