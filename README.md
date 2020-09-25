@@ -26,6 +26,8 @@ npm run storybook
 A lo largo del tiempo se irá actualizando el repositorio con nuevas versiones con componentes:
 
 * TextField
+* CheckboxField
+* Button
 
 
 ## License
