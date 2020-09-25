@@ -16,8 +16,6 @@ const Button = ({
     startIconProp,
   ]);
 
-  console.log(typeof startIconProp);
-
   const endIcon = useMemo(() => <span>{endIconProp}</span>, [endIconProp]);
 
   return (
