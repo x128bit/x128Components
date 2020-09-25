@@ -32,6 +32,7 @@ export const StyledCheckbox = styled.div`
   display: inline-block;
   width: ${({ checkbox = {} }) => checkbox.width || "18px"};
   height: ${({ checkbox = {} }) => checkbox.height || "18px"};
+  cursor: pointer;
   background: ${({ checkBox = {}, checked, disabled }) => {
     if (disabled) {
       const backgroundColor = checked

@@ -13,7 +13,7 @@ const ComponentInDiv = (args) => (
     style={{
       display: "flex",
       justifyContent: "center",
-      width: "5%",
+      width: "10%",
       flexDirection: "column",
     }}
   >
@@ -32,25 +32,33 @@ export const ButtonComponentOnClick = Component.bind({});
 
 export const ButtonComponentWithIcon = Component.bind({});
 
-ButtonComponent.args = { children: "x128" };
+ButtonComponent.args = { children: "x128", disabled: false };
 
 ButtonComponentWithCustomClasses.args = {
   children: "x128",
+  variant: "outlined",
   customClasses: {
-    borderRadius: "none",
+    borderRadius: "0px",
+    border: "5px solid green",
+    focus: {
+      border: "7px solid green",
+    },
     color: "black",
-    backgroundColor: "yellow",
     rippleColor: "black",
+    transition: "1s ease",
   },
+  disabled: false,
 };
 
 ButtonComponentInDiv.args = {
   children: "x128",
+  disabled: false,
 };
 
 ButtonComponentOnClick.args = {
   children: "x128",
   onClick: () => alert("onClick"),
+  disabled: false,
 };
 
 ButtonComponentWithIcon.args = {
@@ -60,4 +68,5 @@ ButtonComponentWithIcon.args = {
       🔥
     </span>
   ),
+  disabled: false,
 };
