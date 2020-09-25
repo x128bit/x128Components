@@ -1,28 +1,55 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+export const CustomButton = styled.button`
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  border: ${({ border }) => border || "none"};
-  border-radius: ${({ borderRadius }) => borderRadius || "4px"};
-  padding: ${({ padding }) => padding || "0 16px"};
-  margin: ${({ margin }) => margin || "10px"};
-  min-width: ${({ width }) => width || "64px"};
-  min-height: ${({ height }) => height || "36px"};
+  border: ${({ customClasses: { border } = {}, variant }) => {
+    if (variant === "outlined") {
+      return border || "1px solid #1976d2";
+    }
+    return border || "none";
+  }};
+  border-radius: ${({ customClasses: { borderRadius } = {} }) =>
+    borderRadius || "4px"};
+  padding: ${({ customClasses: { padding } = {} }) => padding || "0 16px"};
+  margin: ${({ customClasses: { margin } = {} }) => margin || "10px"};
+  min-width: ${({ customClasses: { width } = {} }) => width || "64px"};
+  min-height: ${({ customClasses: { height } = {} }) => height || "36px"};
   vertical-align: middle;
   text-align: center;
   text-overflow: ellipsis;
   text-transform: uppercase;
-  background-color: ${({ backgroundColor }) => backgroundColor || "#1976d2"};
-  color: ${({ color }) => color || "white"};
-  font-weight: ${({ fontWeight }) => fontWeight || "500"};
+  background-color: ${({
+    customClasses: { backgroundColor } = {},
+    variant,
+  }) => {
+    if (variant === "outlined") {
+      return backgroundColor || "rgba(0, 0, 0, 0)";
+    }
+    return backgroundColor || "#1976d2";
+  }};
+  color: ${({ customClasses: { color } = {}, variant }) => {
+    if (variant === "outlined") {
+      return color || "#1976d2";
+    }
+    return color || "white";
+  }};
+  font-weight: ${({ customClasses: { fontWeight } = {} }) =>
+    fontWeight || "500"};
+  font-size: ${({ customClasses: { fontSize } = {} }) =>
+    fontSize || "0.875rem"};
   overflow: hidden;
   outline: none;
   cursor: pointer;
   transition: box-shadow 0.2s;
   :focus {
-    border: ${({ focus: { border } = {} }) => border || "none"};
+    border: ${({ customClasses: { focus: { border } = {} } = {}, variant }) => {
+      if (variant === "outlined") {
+        return border || "1px solid #1976d2";
+      }
+      return border || "none";
+    }};
   }
   :hover,
   :focus {
@@ -36,7 +63,12 @@ export const Button = styled.button`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: ${({ rippleColor }) => rippleColor || "white"};
+    background-color: ${({ customClasses: { rippleColor } = {}, variant }) => {
+      if (variant === "outlined") {
+        return rippleColor || "rgba(25, 118, 210, 0.6)";
+      }
+      return rippleColor || "white";
+    }};
     opacity: 0;
     transition: opacity 0.2s;
   }
@@ -49,7 +81,12 @@ export const Button = styled.button`
     padding: 50%;
     width: 32px; /* Safari */
     height: 32px; /* Safari */
-    background-color: ${({ rippleColor }) => rippleColor || "white"};
+    background-color: ${({ customClasses: { rippleColor } = {}, variant }) => {
+      if (variant === "outlined") {
+        return rippleColor || "rgba(25, 118, 210, 0.6)";
+      }
+      return rippleColor || "white";
+    }};
     opacity: 0;
     transform: translate(-50%, -50%) scale(1);
     transition: opacity 1s, transform 0.5s;
@@ -85,4 +122,5 @@ export const Button = styled.button`
   :disabled::after {
     opacity: 0;
   }
+  ${({ customClasses }) => ({ ...customClasses })}
 `;
