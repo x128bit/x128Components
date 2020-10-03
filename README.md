@@ -28,6 +28,7 @@ A lo largo del tiempo se irá actualizando el repositorio con nuevas versiones c
 * TextField
 * CheckboxField
 * Button
+* Selector vr 1.0 (simple)
 
 
 ## License
